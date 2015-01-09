@@ -5,8 +5,9 @@ int main(int argc, char const *argv[])
 {
     ClassTest test;
 
-    test.setUnAttribut(5);
+    test.setUnAttribut(1000);
     std::cout << test.getUnAttribut();
-    std::cout << test.test();
+    std::cout << test.test("foobarland", true);
+    std::cout << test.test("foobarland", false);
     return 0;
 }

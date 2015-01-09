@@ -14,3 +14,15 @@ string  ClassTest::test()
 {
     return "en test";
 }
+string  ClassTest::test(string str)
+{
+    return str;
+}
+string  ClassTest::test(string str, bool endLine)
+{
+    if (endLine == true)
+    {
+        return test(str) + "\n";
+    }
+    return test(str);
+}

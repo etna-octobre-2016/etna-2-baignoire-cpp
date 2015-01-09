@@ -7,8 +7,10 @@
     {
         public:
             std::string test();
+            std::string test(std::string);
+            std::string test(std::string, bool);
             int         getUnAttribut();
-            void        setUnAttribut(int value);
+            void        setUnAttribut(int);
 
         private:
             int         unAttribut;
