@@ -20,7 +20,7 @@ void        ClassTest::destroy()
 }
 ClassTest*  ClassTest::getInstance()
 {
-    if (!alreadyInstanciated)
+    if (!ClassTest::alreadyInstanciated)
     {
         ClassTest::instance            = new ClassTest();
         ClassTest::alreadyInstanciated = true;
