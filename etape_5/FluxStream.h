@@ -5,9 +5,9 @@
     class FluxStream
     {
         public:
-            virtual bool            close() = 0;
-            virtual bool            open(std::string&) = 0;
-            virtual std::string&    read() = 0;
-            virtual int             write(std::string&) = 0;
+            bool            close();
+            bool            open(std::string&);
+            std::string&    read();
+            int             write(std::string&);
     };
 #endif
