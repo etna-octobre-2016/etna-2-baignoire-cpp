@@ -6,6 +6,11 @@
     class           ClassTest
     {
         public:
-        std::string test();
+            std::string test();
+            int         getUnAttribut();
+            void        setUnAttribut(int value);
+
+        private:
+            int         unAttribut;
     };
 #endif

@@ -2,7 +2,15 @@
 
 using namespace std;
 
-string ClassTest::test()
+int     ClassTest::getUnAttribut()
+{
+    return unAttribut;
+}
+void    ClassTest::setUnAttribut(int value)
+{
+    unAttribut = value;
+}
+string  ClassTest::test()
 {
     return "en test";
 }
