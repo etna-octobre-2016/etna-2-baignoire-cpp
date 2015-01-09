@@ -7,16 +7,8 @@ int main(int argc, char const *argv[])
     {
         ClassTest *test;
 
-        test = ClassTest::getInstance();
-        ClassTest::destroy();
-        test = ClassTest::getInstance();
-        ClassTest::destroy();
-        test = ClassTest::getInstance();
-        test = ClassTest::getInstance();
-        test->setUnAttribut(1000);
-        std::cout << test->getUnAttribut();
-        std::cout << test->test("foobarland", true);
-        std::cout << test->test("foobarland", false);
+        test = &ClassTest::getInstance();
+        std::cout << test->test("toto", true);
         return 0;
     }
     catch (std::string e)

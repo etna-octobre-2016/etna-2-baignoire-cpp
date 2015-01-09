@@ -13,7 +13,7 @@
         // PUBLIC METHODS
         public:
             static void         destroy();
-            static ClassTest*   getInstance();
+            static ClassTest&   getInstance();
             int                 getUnAttribut();
             void                setUnAttribut(int);
             std::string         test();

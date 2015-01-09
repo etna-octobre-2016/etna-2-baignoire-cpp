@@ -18,14 +18,14 @@ void        ClassTest::destroy()
         delete ClassTest::instance;
     }
 }
-ClassTest*  ClassTest::getInstance()
+ClassTest&  ClassTest::getInstance()
 {
     if (!ClassTest::alreadyInstanciated)
     {
         ClassTest::instance            = new ClassTest();
         ClassTest::alreadyInstanciated = true;
     }
-    return ClassTest::instance;
+    return *(ClassTest::instance);
 }
 int         ClassTest::getUnAttribut()
 {
