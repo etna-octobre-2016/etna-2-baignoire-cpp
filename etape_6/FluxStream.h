@@ -4,15 +4,13 @@
     #include <iostream>
     #include <string>
 
-    using namespace std;
-
-    class                   FluxStream
+    class                           FluxStream
     {
         public:
-            virtual         ~FluxStream(){}
-            virtual bool    open(string& filepath) = 0;
-            virtual string& read() = 0;
-            virtual int     write(string& line) = 0;
-            virtual bool    close() = 0;
+            virtual                 ~FluxStream(){}
+            virtual bool            close() = 0;
+            virtual bool            open(std::string& filepath) = 0;
+            virtual std::string&    read() = 0;
+            virtual int             write(std::string& line) = 0;
     };
 #endif
