@@ -28,7 +28,7 @@ bool FileStreamImpl::close()
 
 bool FileStreamImpl::open(std::string& filePath)
 {
-	this->file.open(filePath, std::ios_base::in | std::ios_base::out);
+	this->file.open(filePath, std::ios_base::in | std::ios_base::out | std::ios_base::app);
 	if (this->file.is_open())
 	{
 		return true;
@@ -43,5 +43,18 @@ std::string& FileStreamImpl::read()
 
 int FileStreamImpl::write(std::string& line)
 {
-	return 1;
+	int lineLength;
+	int writtenCharactersCount;
+
+	writtenCharactersCount = 0;
+	if (this->file.is_open())
+	{
+		lineLength = line.length();
+		this->file.write(line.c_str(), lineLength);
+		if (this->file.good())
+		{
+			writtenCharactersCount = lineLength;
+		}
+	}
+	return writtenCharactersCount;
 }
