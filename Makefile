@@ -15,3 +15,6 @@ etape3:
 
 etape4:
 	$(CC) main.cpp etape_4/*.cpp -o $(NAME)
+
+etape6:
+	$(CC) main.cpp etape_6/*.cpp -o $(NAME)

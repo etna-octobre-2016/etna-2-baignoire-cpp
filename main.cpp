@@ -1,14 +1,12 @@
-#include <iostream>
-#include "etape_4/ClassTest.h"
+#include "etape_6/FileStreamImpl.h"
 
 int main(int argc, char const *argv[])
 {
     try
     {
-        ClassTest *test;
+        FileStreamImpl fs;
 
-        test = &ClassTest::getInstance();
-        std::cout << test->test("toto", true);
+        std::cout << fs.read();
         return 0;
     }
     catch (std::string e)
