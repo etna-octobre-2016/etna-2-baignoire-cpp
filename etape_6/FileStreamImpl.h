@@ -1,13 +1,15 @@
 #ifndef FILE_STREAM_IMPL_H
 	#define  FILE_STREAM_IMPL_H
 
+	#include <fstream>
 	#include "FluxStream.h"
 
 	class        			FileStreamImpl
 	{
 		// ATTRIBUTES
 		private:
-			std::string 	fileLine;
+			std::string 	currentLine;
+			std::fstream	file;
 
 		// CONSTRUCTOR / DESTRUCTOR
 		public:

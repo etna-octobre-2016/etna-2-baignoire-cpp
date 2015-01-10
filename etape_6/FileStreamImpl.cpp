@@ -5,13 +5,12 @@
 
 FileStreamImpl::FileStreamImpl()
 {
-	this->fileLine = "foobarland\n";
-	std::cout << "instanciated\n";
+	this->currentLine = "";
 }
 
 FileStreamImpl::~FileStreamImpl()
 {
-	std::cout << "destroyed\n";
+	this->close();
 }
 
 // PUBLIC METHODS
@@ -19,17 +18,27 @@ FileStreamImpl::~FileStreamImpl()
 
 bool FileStreamImpl::close()
 {
-	return true;
+	if (this->file.is_open())
+	{
+		this->file.close();
+		return true;
+	}
+	return false;
 }
 
 bool FileStreamImpl::open(std::string& filePath)
 {
-	return true;
+	this->file.open(filePath, std::ios_base::in | std::ios_base::out);
+	if (this->file.is_open())
+	{
+		return true;
+	}
+	return false;
 }
 
 std::string& FileStreamImpl::read()
 {
-	return this->fileLine;
+	return this->currentLine;
 }
 
 int FileStreamImpl::write(std::string& line)

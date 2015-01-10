@@ -4,9 +4,11 @@ int main(int argc, char const *argv[])
 {
     try
     {
-        FileStreamImpl fs;
+        FileStreamImpl  fs;
+        std::string     filePath;
 
-        std::cout << fs.read();
+        filePath = "/Users/ahemt_s/Desktop/toto.txt";
+        std::cout << fs.open(filePath);
         return 0;
     }
     catch (std::string e)
