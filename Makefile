@@ -19,3 +19,6 @@ etape4:
 
 etape6:
 	$(CC) $(CCFLAGS) main.cpp etape_6/*.cpp -o $(NAME)
+
+etape7:
+	$(CC) $(CCFLAGS) main.cpp etape_7/*.cpp -o $(NAME)

@@ -1,21 +1,18 @@
-#ifndef FILE_STREAM_IMPL_H
-    #define  FILE_STREAM_IMPL_H
+#ifndef DUMMY_STREAM_IMPL_H
+    #define  DUMMY_STREAM_IMPL_H
 
-    #include <fstream>
     #include "FluxStream.h"
 
-    class                   FileStreamImpl
+    class                   DummyStreamImpl : public FluxStream
     {
         // ATTRIBUTES
         private:
             std::string     currentLineContent;
-            std::ifstream   fileInput;
-            std::ofstream   fileOutput;
 
         // CONSTRUCTOR / DESTRUCTOR
         public:
-            FileStreamImpl();
-            ~FileStreamImpl();
+            DummyStreamImpl();
+            ~DummyStreamImpl();
 
         // PUBLIC METHODS
         public:
