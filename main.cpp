@@ -8,10 +8,13 @@ int main(int argc, char const *argv[])
         std::string     test;
         std::string     filePath;
 
-        test = "foobar";
+        test = "foobar\n";
         filePath = "/Users/ahemt_s/Desktop/toto.txt";
-        std::cout << fs.open(filePath) << "\n";
-        std::cout << "written: " << fs.write(test) << "\n";
+        fs.open(filePath);
+        fs.write(test);
+        std::cout << fs.read() << "\n";
+        test = "toto\n";
+        fs.write(test);
         std::cout << fs.read() << "\n";
         fs.close();
         return 0;
