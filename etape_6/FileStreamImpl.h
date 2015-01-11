@@ -8,10 +8,9 @@
     {
         // ATTRIBUTES
         private:
-            int             currentLine;
             std::string     currentLineContent;
-            std::string     filePath;
-            std::fstream    file;
+            std::ifstream   fileInput;
+            std::ofstream   fileOutput;
 
         // CONSTRUCTOR / DESTRUCTOR
         public:
@@ -24,9 +23,5 @@
             bool            open(std::string&);
             std::string&    read();
             int             write(std::string&);
-
-        // PRIVATE METHODS
-        private:
-            void            resetAttributes();
     };
 #endif

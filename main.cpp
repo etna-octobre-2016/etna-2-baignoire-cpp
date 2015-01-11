@@ -9,23 +9,23 @@ int main(int argc, char const *argv[])
 
         filePath = "/Users/ahemt_s/Desktop/toto.txt";
         std::cout << fs.open(filePath) << "\n";
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
-        std::cout << fs.read();
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
+        std::cout << fs.read() << "\n";
         return 0;
     }
-    catch (std::string e)
+    catch (const char *e)
     {
         std::cout << e;
         return 1;

@@ -5,7 +5,7 @@
 
 FileStreamImpl::FileStreamImpl()
 {
-    this->resetAttributes();
+    this->currentLineContent = "";
 }
 
 FileStreamImpl::~FileStreamImpl()
@@ -18,10 +18,10 @@ FileStreamImpl::~FileStreamImpl()
 
 bool FileStreamImpl::close()
 {
-    if (this->file.is_open())
+    if (this->fileInput.is_open() && this->fileOutput.is_open())
     {
-        this->file.close();
-        this->resetAttributes();
+        this->fileInput.close();
+        this->fileOutput.close();
         return true;
     }
     return false;
@@ -29,10 +29,10 @@ bool FileStreamImpl::close()
 
 bool FileStreamImpl::open(std::string& filePath)
 {
-    this->file.open(filePath, std::ios_base::in | std::ios_base::out | std::ios_base::app);
-    if (this->file.is_open())
+    this->fileInput.open(filePath, std::ios_base::in);
+    this->fileOutput.open(filePath, std::ios_base::out | std::ios_base::app);
+    if (this->fileInput.is_open() && this->fileOutput.is_open())
     {
-        this->filePath = filePath;
         return true;
     }
     return false;
@@ -40,33 +40,7 @@ bool FileStreamImpl::open(std::string& filePath)
 
 std::string& FileStreamImpl::read()
 {
-    // static int               line;
-    // static bool          eof;
-    // static std::string       tmp;
-    // static std::ifstream     file(this->filePath);
-    //
-    // if (file.is_open())
-    // {
-    //  eof  = true;
-    //  line = 1;
-    //  while (std::getline(file, tmp))
-    //  {
-    //      std::cout << "line = " << line << " current line = " << this->currentLine << "\n";
-    //      if (line > this->currentLine)
-    //      {
-    //          eof = false;
-    //          this->currentLine = line;
-    //          this->currentLineContent = tmp;
-    //          break;
-    //      }
-    //      line++;
-    //  }
-    //  if (eof)
-    //  {
-    //      this->currentLineContent = "";
-    //  }
-    //  file.close();
-    // }
+    std::getline(this->fileInput, this->currentLineContent);
     return this->currentLineContent;
 }
 
@@ -76,24 +50,14 @@ int FileStreamImpl::write(std::string& line)
     int writtenCharactersCount;
 
     writtenCharactersCount = 0;
-    if (this->file.is_open())
+    if (this->fileOutput.is_open())
     {
         lineLength = line.length();
-        this->file.write(line.c_str(), lineLength);
-        if (this->file.good())
+        this->fileOutput.write(line.c_str(), lineLength);
+        if (this->fileOutput.good())
         {
             writtenCharactersCount = lineLength;
         }
     }
     return writtenCharactersCount;
-}
-
-// PRIVATE METHODS
-//////////////////////////////////////////////////////////
-
-void FileStreamImpl::resetAttributes()
-{
-    this->currentLine           = 0;
-    this->currentLineContent    = "";
-    this->filePath              = "";
 }
