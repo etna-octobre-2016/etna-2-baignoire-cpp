@@ -29,8 +29,8 @@ bool FileStreamImpl::close()
 
 bool FileStreamImpl::open(std::string& filePath)
 {
-    this->fileInput.open(filePath, std::ios_base::in);
-    this->fileOutput.open(filePath, std::ios_base::out | std::ios_base::app);
+    this->fileInput.open(filePath.c_str(), std::ios_base::in);
+    this->fileOutput.open(filePath.c_str(), std::ios_base::out | std::ios_base::app);
     if (this->fileInput.is_open() && this->fileOutput.is_open())
     {
         return true;
