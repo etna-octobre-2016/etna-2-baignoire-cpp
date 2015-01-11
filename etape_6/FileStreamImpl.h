@@ -4,7 +4,7 @@
     #include <fstream>
     #include "FluxStream.h"
 
-    class                   FileStreamImpl
+    class                   FileStreamImpl : public FluxStream
     {
         // ATTRIBUTES
         private:
